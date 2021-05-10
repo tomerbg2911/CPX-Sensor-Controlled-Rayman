@@ -1,0 +1,6 @@
+{
+    "port": "COM3",
+    "board": "arduino:samd:adafruit_circuitplayground_m0",
+    "sketch": "Sensor_Controlled_Rayman\\Sensor_Controlled_Rayman.ino",
+    "output": "../output"
+}

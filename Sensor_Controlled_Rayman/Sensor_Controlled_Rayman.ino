@@ -6,11 +6,14 @@
 #define tapThreshold 120
 #define fistThreshold 5
 #define jumpThreshold 90
+#define delayBetweenCheats 100
+#define airePressureLevel 10
 
 int lastMotionX = 0;
 int lastMotionY = 0;
 int lastMotionZ = 0;
 bool isChargingFist = false;
+bool isD7SwitchInitiallyOn = false;
 bool isOnCheatMode = false;
 char masterMode[] = {KEY_TAB, 'p', 'r', 'o', 'g', 'r', 'a', 'm'};
 char tenMoreTings[] = {KEY_TAB, 'j', 'o', 'j', 'o'};
@@ -24,6 +27,7 @@ void setup()
   CircuitPlayground.setAccelRange(LIS3DH_RANGE_2_G); // 2, 4, 8 or 16 G!
   CircuitPlayground.setAccelTap(1, tapThreshold);
   attachInterrupt(digitalPinToInterrupt(CPLAY_LIS3DH_INTERRUPT), onTapHandler, FALLING);
+  isD7SwitchInitiallyOn = CircuitPlayground.slideSwitch();
 }
 
 // Handles the event of the instrument being tapped
@@ -98,7 +102,7 @@ void getFistInputs()
 
 void getJumpInputs()
 {
-  if (CircuitPlayground.mic.soundPressureLevel(10) > jumpThreshold)
+  if (CircuitPlayground.mic.soundPressureLevel(airePressureLevel) > jumpThreshold)
   {
     Keyboard.press(KEY_LEFT_CTRL);
   }
@@ -110,17 +114,25 @@ void getJumpInputs()
 
 void updateCheatMode()
 {
-  if (CircuitPlayground.slideSwitch() && !isOnCheatMode)
+  if (isD7SwitchInitiallyOn && !CircuitPlayground.slideSwitch())
+  {
+    isOnCheatMode = false;
+    isD7SwitchInitiallyOn = false;
+  }
+
+  else if (CircuitPlayground.slideSwitch() && !isOnCheatMode)
   {
     Serial.print("ON!");
     isOnCheatMode = true;
-    freeMovementCheat();
+    switchFreeMovementCheat();
+    //delay(delayBetweenCheats);
+    //masterModeCheat();
   }
 
   else if (!CircuitPlayground.slideSwitch() && isOnCheatMode)
   {
     isOnCheatMode = false;
-    freeMovementCheat();
+    switchFreeMovementCheat();
   }
 }
 
@@ -142,7 +154,7 @@ void tenMoreTingsCheat()
     }
 }
 
-void freeMovementCheat()
+void switchFreeMovementCheat()
 {
     for (int i = 0; i < strlen(freeMovement); i++)
     {
