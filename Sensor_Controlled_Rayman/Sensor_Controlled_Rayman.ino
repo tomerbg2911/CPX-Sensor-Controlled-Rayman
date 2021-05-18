@@ -52,12 +52,6 @@ void setup()
   attachInterrupt(digitalPinToInterrupt(CPLAY_LIS3DH_INTERRUPT), onTapHandler, FALLING);
 }
 
-// Handles the event of the instrument being tapped
-void onTapHandler(void)
-{
-  Serial.println("TAP!");
-}
-
 void loop()
 {
   handleMovement();
@@ -65,6 +59,12 @@ void loop()
   handleJump();
   updateCheatMode();
   delay(100);
+}
+
+// Handles the event of the instrument being tapped
+void onTapHandler(void)
+{
+  Serial.println("TAP!");
 }
 
 // Handles Rayman's horizontal movement
