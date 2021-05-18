@@ -24,3 +24,6 @@ Switch the slide switch again - to turn off the cheat mode
 You can download Rayman for Windows from here: https://gamesnostalgia.com/download/rayman/2626?t=52500836
 
 and for Mac from here: https://gamesnostalgia.com/download/rayman/1581?t=45038610
+
+## Credits
+[LiorRey](http://github.com/LiorRey) & [Tomerbg2911](http://github.com/Tomerbg2911) 
