@@ -16,7 +16,7 @@ Switch the slide switch again - to turn off the cheat mode
 ```
 
 
-## Video link (turn on the CAPTIONS of the videos!)
+## Video link (turn on the CAPTIONS of the video!)
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/p_g85eZUXA0/0.jpg)](http://www.youtube.com/watch?v=p_g85eZUXA0 "IoT: Sensor-Controlled Gameplay - Rayman!")
 
