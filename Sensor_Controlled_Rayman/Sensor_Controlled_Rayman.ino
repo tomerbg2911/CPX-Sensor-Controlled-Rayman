@@ -1,3 +1,29 @@
+/*
+ * Sensor-Controlled Gameplay: Rayman!
+ * 
+ * We created a sensor-controlled controller to play one of the most beloved video games of the 90's - Rayman!
+ * 
+ * Press the left button A (D4) - to move left
+ * Press the right Button B (D5) - to move right
+ * Blow on the sound sensor (microphone) - to jump
+ * Blow on the sound sensor again while Rayman is in mid-air - to do a helicopter
+ * Shake and wave your hand - to charge a punch (hand motion is detected by the motion sensor / accelerometer)
+ * Release your hand - to launch a punch
+ * Switch the slide switch - to turn on the cheat mode (cheat: Free movement)
+ * Switch the slide switch again - to turn off the cheat mode
+ *
+ * Video links (turn on the CAPTIONS of the videos!) :
+ * - IoT: Sensor-Controlled Gameplay - Rayman!
+ *   https://www.youtube.com/watch?v=p_g85eZUXA0
+ *
+ * You can download Rayman for Windows from here: https://gamesnostalgia.com/download/rayman/2626?t=52500836
+ * and for Mac from here: https://gamesnostalgia.com/download/rayman/1581?t=45038610
+ * 
+ * Created by :
+ * Tomer Ben-Gigi, 206198772
+ * Lior Reytan, 204326607
+ */
+ 
 #include <Adafruit_CircuitPlayground.h>
 #include <Wire.h>
 #include <SPI.h>
